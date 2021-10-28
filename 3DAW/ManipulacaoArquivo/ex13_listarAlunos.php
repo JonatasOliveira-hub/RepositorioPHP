@@ -23,7 +23,7 @@
 <body>
 <h1>Listar Aluno</h1>
 <br>
-<a href="ex13_inserirAluno.php">Inserir Aluno</a><br>
+<a href="ex13_inserirAlunoArquivoAppend.php">Inserir Aluno</a><br>
 <a href="ex13_alterarAluno.php">Alterar Aluno</a><br>
 <a href="ex13_listarAlunos.php">Listar Alunos</a><br>
 <a href="ex13_excluirAluno.php">Excluir Aluno</a><br>
