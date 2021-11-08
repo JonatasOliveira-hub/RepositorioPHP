@@ -8,6 +8,8 @@ include_once './postgres_connection.php'
         <title>Alunos</title>
     </head>
     <body>
+        <a href = "index.php">Listar</a><br>
+        <a href = "Cadastrar.php">Cadastrar</a><br>
         <h1>Cadastrar</h1>
         <?php
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
