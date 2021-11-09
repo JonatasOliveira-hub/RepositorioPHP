@@ -20,9 +20,10 @@ include_once './postgres_connection.php'
         if( ($result_alunos) AND ($result_alunos->rowCount() != 0) ){
             while ($linha = $result_alunos->fetch(PDO::FETCH_ASSOC)) {
                 extract($linha);
-                echo "ID: $id <br>";
+                echo "id: $id <br>";
                 echo "Matricula: $matricula <br>";
                 echo "NomeAluno: $nomealuno <br>";
+                echo "<a href='editar.php?id_usuario=$id'>Editar</a><br>";
                 echo "<hr>";
             }
         }else {
