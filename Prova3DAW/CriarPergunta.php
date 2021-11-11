@@ -58,6 +58,7 @@ include_once './postgres_connection.php'
             <input type=radio name=grau_dificuldade value="muito difícil"> Muito difícil
             <br><br>
 
-            <input type="submit" value="CriaPergunta" name="CriaPergunta"> 
+            <input type="submit" value="CriaPergunta" name="CriaPergunta">
+        </form>
     </body>
 </html>
