@@ -2,25 +2,25 @@
 session_start();
 ob_start();
 include_once './postgres_connection.php';
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $id = $_POST["id_pergunta"];
-    $descricao_pergunta = $_POST["descricao_pergunta"];
-    $qunt_pontos = $_POST["qunt_pontos"];
-    $grau_dificuldade = $_POST["grau_dificuldade"];
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
+        $id = $_POST["id_pergunta"];
+        $descricao_pergunta = $_POST["descricao_pergunta"];
+        $qunt_pontos = $_POST["qunt_pontos"];
+        $grau_dificuldade = $_POST["grau_dificuldade"];
 
-    $stmt = $dbconn->prepare('UPDATE perguntas SET descricao_pergunta = :descricao_pergunta, qunt_pontos = :qunt_pontos, grau_dificuldade = :grau_dificuldade WHERE id_pergunta = :id');
-   
-    $stmt->execute(array(
-      ':id'   => $id,
-      ':descricao_pergunta' => $descricao_pergunta,
-      ':qunt_pontos' => $qunt_pontos,
-      ':grau_dificuldade' => $grau_dificuldade,
-    ));
-    
-    $stmt->rowCount();
-    echo "<p style=color:green;> Pergunta editada com sucesso!  </p>";
-}
-
+        $stmt = $dbconn->prepare('UPDATE perguntas SET descricao_pergunta = :descricao_pergunta, qunt_pontos = :qunt_pontos, grau_dificuldade = :grau_dificuldade WHERE id_pergunta = :id');
+        $stmt->execute(array(
+        ':id'   => $id,
+        ':descricao_pergunta' => $descricao_pergunta,
+        ':qunt_pontos' => $qunt_pontos,
+        ':grau_dificuldade' => $grau_dificuldade,
+        ));
+        if($stmt->rowCount() > 0){
+            echo "<p style=color:green;> Pergunta editada com sucesso!  </p>";
+        }else {
+            echo "<p style=color:red;> Pergunta não editada com sucesso!  </p>";
+        }
+    }  
 ?>
 <!DOCTYPE html>
 <html>
