@@ -1,5 +1,5 @@
 <?php
-include_once './postgres_connection.php'
+include_once './postgres_connection.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,7 @@ include_once './postgres_connection.php'
         <a href = "ListarPerguntas.php">Listar</a><br>
         <a href = "CriarPergunta.php">Criar Pergunta</a><br>
         <a href = "ListarUmaPergunta.php">Listar uma pergunta</a><br>
+        <a href = "editar.php">Editar pergunta</a><br>
         <h1>Criar Perguntas</h1>
         <?php
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);

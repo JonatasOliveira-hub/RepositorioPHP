@@ -1,5 +1,5 @@
 <?php
-include_once './postgres_connection.php'
+include_once './postgres_connection.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,7 @@ include_once './postgres_connection.php'
         <a href = "ListarPerguntas.php">Listar</a><br>
         <a href = "CriarPergunta.php">Criar Pergunta</a><br>
         <a href = "ListarUmaPergunta.php">Listar uma pergunta</a><br>
+        <a href = "editar.php">Editar pergunta</a><br>
         <h1>Listar todas as perguntas</h1>
         
         <?php
@@ -25,7 +26,6 @@ include_once './postgres_connection.php'
                 echo "Pergunta: $descricao_pergunta <br>";
                 echo "Quantidade de pontos da pergunta: $qunt_pontos <br>";
                 echo "Grau de dificuldade da pergunta: $grau_dificuldade <br>";
-               // echo "<a href='editar.php?id_usuario=$id'>Editar</a><br>";
                 echo "<hr>";
             }
         }else {
