@@ -8,8 +8,9 @@ include_once './postgres_connection.php'
         <title>Perguntas</title>
     </head>
     <body>
-        <a href = "index.php">Listar</a><br>
+        <a href = "ListarPerguntas.php">Listar</a><br>
         <a href = "CriarPergunta.php">Criar Pergunta</a><br>
+        <a href = "ListarUmaPergunta.php">Listar uma pergunta</a><br>
         <h1>Criar Perguntas</h1>
         <?php
             $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);

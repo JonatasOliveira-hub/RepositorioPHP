@@ -10,6 +10,7 @@ include_once './postgres_connection.php'
     <body>
         <a href = "ListarPerguntas.php">Listar</a><br>
         <a href = "CriarPergunta.php">Criar Pergunta</a><br>
+        <a href = "ListarUmaPergunta.php">Listar uma pergunta</a><br>
         <h1>Listar todas as perguntas</h1>
         
         <?php

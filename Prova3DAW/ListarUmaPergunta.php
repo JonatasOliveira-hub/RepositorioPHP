@@ -1,19 +1,26 @@
 <?php
-//$id = 0;
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 $id = $_POST["id"];
+// Por algum motivo, o programa não conseguiu pegar a variavel do arquivo postgres_connection.php.
+//Fui obrigado a colocar a conexão aqui.
+try{
+    $dbconn = new PDO("pgsql:host=localhost;port=1500;dbname=postgres;user=postgres;password=postgres");     
+    $dbconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $dbconn->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, "SET NAMES 'utf8'");
+} catch(PDOException $erro){
+    echo "Erro na conexão:" . $erro->getMessage();
+}
 
-$sql = "SELECT id_pergunta, descricao_pergunta, qunt_pontos, grau_dificuldade FROM perguntas WHERE id_pergunta = $id" ;
-$result_perg = $dbconn -> prepare($sql);
-$result_perg->execute();
-    echo "id: $id <br>";
-        echo "Pergunta: $descricao_pergunta <br>";
-        echo "Quantidade de pontos da pergunta: $qunt_pontos <br>";
-        echo "Grau de dificuldade da pergunta: $grau_dificuldade <br>";
+$consulta = $dbconn->query("SELECT id_pergunta, descricao_pergunta, qunt_pontos, grau_dificuldade FROM perguntas WHERE id_pergunta = $id");
+while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+        echo "id: $id <br>";
+        echo "Pergunta:  {$linha['descricao_pergunta']} <br>";
+        echo "Quantidade de pontos da pergunta: {$linha['qunt_pontos']} <br>";
+        echo "Grau de dificuldade da pergunta:{$linha['grau_dificuldade']} <br>";
         echo "<hr>";
     }
-
-include_once './postgres_connection.php'
+}
 ?>
 <!DOCTYPE html>
 <html>
