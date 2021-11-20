@@ -12,12 +12,13 @@ Proteção contra acesso direto ao login.
 $usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
 
-$sql = "select id_usuario, usuario from Tb_Usuario where usuario = '{$usuario}' and senha = MD5('{$senha}')";
+$sql = "select id_usuario, usuario from Tb_Usuario where usuario = '{$usuario}' and senha = MD5('{$senha}')";//Adicionar o nivel do usuario. De acordo com o nivel, ele pode realizar o crud.
 $result = $dbconn->prepare($sql);
 $result->execute();
 $result->rowCount();
 if ($result->rowCount()) {
     $_SESSION['usuario'] = $usuario;
+    //Se for gerente, tem acesso irrestrito
     header('Location: painel.php');
     exit();
 } else {
