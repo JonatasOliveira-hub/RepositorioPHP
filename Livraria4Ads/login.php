@@ -37,4 +37,3 @@ if ($result->rowCount()) {
     $_SESSION['nao_autenticado'] = true;
     header('Location: index.php');
 }
-?>
