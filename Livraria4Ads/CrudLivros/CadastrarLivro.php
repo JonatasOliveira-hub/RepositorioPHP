@@ -1,5 +1,5 @@
 <?php
-include_once '../postgres_connection.php'
+include_once '../postgres_connection.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,21 +67,21 @@ include_once '../postgres_connection.php'
     </form>
     <a href="../index.php">Home</a><br>
     <a href="../atribuicoesGerente.php">Pagina anterior</a><br>
-    
-    <a href="AlterarLivros.php">Alterar Livros</a><br>
-    <a href="RemoverLivros.php">Excluir Livros</a><br>
-    <a href="ListarLivros.php">Exibir Livros</a><br>
+
+    <a href="./AlterarLivro.php">Alterar Livros</a><br>
+    <a href="./RemoverLivros.php">Excluir Livros</a><br>
+    <a href="./ListarLivros.php">Exibir Livros</a><br>
 
     <a href="CadastrarCliente.php">Cadastrar Novo Cliente</a><br>
     <a href="RemoverCliente.php">Remover Cliente</a><br>
     <a href="AlterarCliente.php">Alterar Cliente</a><br>
     <a href="BuscarCliente.php">Buscar Cliente</a><br>
-    
+
     <a href="CadastrarFuncionario.php">Cadastrar Novo Funcionário</a><br>
     <a href="AlterarFuncionario.php">Alterar Funcionário</a><br>
     <a href="RemoverFuncionario.php">Excluir Funcionário</a><br>
     <a href="BuscarFuncionario.php">Buscar Funcionário</a><br>
-    
+
     <h2><a href="../logout.php">Sair</a></h2>
 </body>
 

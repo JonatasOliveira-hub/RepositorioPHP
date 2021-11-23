@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-include_once './postgres_connection.php'
+include_once './postgres_connection.php';
 
 $num=filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 

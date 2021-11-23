@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -8,12 +11,14 @@
 
 <body>
     <h1>Perfil Gerencial da Biblioteca</h1>
+    <h2>Olá, <?php echo $_SESSION['usuario']; ?>, você é um <?php echo $_SESSION['descricao_nivel']; ?>(a)</h2>
+
     <a href="index.php">Home</a><br>
     
     <a href="./CrudLivros/CadastrarLivro.php">Cadastrar Novo Livro</a><br>
-    <a href="AlterarLivros.php">Alterar Livros</a><br><!-- Verificar se é possivel no mesmo arquivo php, decidir se a operação vai atingir um ou mais livros -->
-    <a href="RemoverLivros.php">Excluir Livros</a><br>
-    <a href="ListarLivros.php">Exibir Livros</a><br>
+    <a href="./CrudLivros/AlterarLivro.php">Alterar Livros</a><br><!-- Verificar se é possivel no mesmo arquivo php, decidir se a operação vai atingir um ou mais livros -->
+    <a href="./CrudLivros/RemoverLivros.php">Excluir Livros</a><br>
+    <a href="./CrudLivros/ListarLivros.php">Exibir Livros</a><br>
 
     <a href="CadastrarCliente.php">Cadastrar Novo Cliente</a><br>
     <a href="RemoverCliente.php">Remover Cliente</a><br>
