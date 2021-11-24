@@ -6,23 +6,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cod_livro = $_POST["cod_livro"];
     $nome = $_POST["nomeLivro"];
     $autor = $_POST["nomeAutor"];
-    $editora = $_POST["nomeEditora"];
-    $qtd_estoque = $_POST["qtdEstoque"];
     $cod_de_barras = $_POST["codBarras"];
 
-    $stmt = $dbconn->prepare('UPDATE tb_livro SET nome=:nomeLivro, autor=:nomeAutor, editora=:nomeEditora, quantidade_estoque=:qtdEstoque, cod_de_barras=:codBarras WHERE cod_livro = :cod_livro');
+    $stmt = $dbconn->prepare('DELETE FROM tb_livro WHERE cod_livro = :cod_livro AND nome=:nomeLivro AND autor=:nomeAutor AND cod_de_barras=:codBarras');
     $stmt->execute(array(
         ':cod_livro'   => $cod_livro,
         ':nomeLivro' => $nome,
         ':nomeAutor' => $autor,
-        ':nomeEditora' => $editora,
-        ':qtdEstoque' => $qtd_estoque,
         ':codBarras' => $cod_de_barras,
     ));
     if ($stmt->rowCount() > 0) {
-        echo "<p style=color:green;> Livro editado com sucesso!  </p>";
+        echo "<p style=color:green;> Livro removido com sucesso!  </p>";
     } else {
-        echo "<p style=color:red;> Livro não editado com sucesso!  </p>";
+        echo "<p style=color:red;> Livro não removido com sucesso!  </p>";
     }
 }
 ?>
@@ -31,14 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>Alterar Livro</title>
+    <title>Remover Livro</title>
 </head>
 
 <body>
 
-    <h1>Alterar Livro</h1>
+    <h1>Remover Livro</h1>
 
-    <form name="AlterarLivro" method="POST" action="">
+    <form name="RemoverLivro" method="POST" action="">
 
         <label>Código do livro: </label>
         <input type="number" name="cod_livro" id="cod_livro" placeholder="Código do livro"><br><br>
@@ -49,22 +45,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>Autor do livro: </label>
         <input type="text" name="nomeAutor" id="nomeAutor" placeholder="Nome do autor"><br><br>
 
-        <label>Editora do livro: </label>
-        <input type="text" name="nomeEditora" id="nomeEditora" placeholder="Nome da editora"><br><br>
-
-        <label>Quantidade em estoque: </label>
-        <input type="number" name="qtdEstoque" id="qtdEstoque" placeholder="Quantidade no estoque"><br><br>
-
         <label>Código de barras: </label>
         <input type="number" name="codBarras" id="codBarras" placeholder="Código de barras"><br><br>
 
-        <input type="submit" value="AlterarLivro" name="AlterarLivro"><br><br>
+        <input type="submit" value="Remover Livro" name="Remover Livro"><br><br>
     </form>
     <a href="../index.php">Home</a><br>
     <a href="../atribuicoesGerente.php">Pagina anterior</a><br>
 
     <a href="./CadastrarLivro.php">Cadastrar Novo Livro</a><br>
-    <a href="./RemoverLivros.php">Excluir Livros</a><br>
+    <a href="./AlterarLivro.php">Alterar Livros</a><br>
     <a href="./ListarLivros.php">Exibir Livros</a><br>
 
     <a href="CadastrarCliente.php">Cadastrar Novo Cliente</a><br>

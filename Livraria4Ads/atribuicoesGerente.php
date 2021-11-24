@@ -16,7 +16,7 @@ session_start();
     <a href="index.php">Home</a><br>
     
     <a href="./CrudLivros/CadastrarLivro.php">Cadastrar Novo Livro</a><br>
-    <a href="./CrudLivros/AlterarLivro.php">Alterar Livros</a><br><!-- Verificar se é possivel no mesmo arquivo php, decidir se a operação vai atingir um ou mais livros -->
+    <a href="./CrudLivros/AlterarLivro.php">Alterar Livros</a><br>
     <a href="./CrudLivros/RemoverLivros.php">Excluir Livros</a><br>
     <a href="./CrudLivros/ListarLivros.php">Exibir Livros</a><br>
 
