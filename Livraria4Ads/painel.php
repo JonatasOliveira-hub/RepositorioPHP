@@ -4,7 +4,7 @@ include('verifica_login.php');
 aproveitando a session, foi passado o usuario.*/
 ?>
 <?php
-if ($_SESSION['descricao_nivel'] = 'Gerente') {
+if ($_SESSION['descricao_nivel'] == 'Gerente') {
     header('Location: atribuicoesGerente.php');
 }else{}
 ?>
