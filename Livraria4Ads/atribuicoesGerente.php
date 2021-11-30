@@ -73,7 +73,7 @@ session_start();
                 <div class="col-md-4">
                     <h2>Cadastrar Novo Cliente</h2>
                     <p>Realiza o cadastro de um novo cliente no sistema.</p>
-                    <p><a class="btn btn-secondary" href="CadastrarCliente.php" role="button">Cadastrar Novo Cliente &raquo;</a></p>
+                    <p><a class="btn btn-secondary" href="./CrudClientes/CadastrarCliente.php" role="button">Cadastrar Novo Cliente &raquo;</a></p>
                 </div>
             </div>
 
@@ -81,7 +81,7 @@ session_start();
                 <div class="col-md-4">
                     <h2>Remover Cliente</h2>
                     <p>Realiza a exclusão dos dados de um cliente no sistema.</p>
-                    <p><a class="btn btn-secondary" href="RemoverCliente.php" role="button">Remover Cliente &raquo;</a></p>
+                    <p><a class="btn btn-secondary" href="./CrudClientes/RemoverCliente.php" role="button">Remover Cliente &raquo;</a></p>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@ session_start();
                 <div class="col-md-4">
                     <h2>Alterar Cliente</h2>
                     <p>Realiza a alteração dos dados de um cliente no sistema.</p>
-                    <p><a class="btn btn-secondary" href="AlterarCliente.php" role="button">Alterar dados do cliente &raquo;</a></p>
+                    <p><a class="btn btn-secondary" href="./CrudClientes/AlterarCliente.php" role="button">Alterar dados do cliente &raquo;</a></p>
                 </div>
             </div>
 
@@ -97,7 +97,7 @@ session_start();
                 <div class="col-md-4">
                     <h2>Buscar Cliente</h2>
                     <p>Exibe os dados de um cliente no sistema.</p>
-                    <p><a class="btn btn-secondary" href="BuscarCliente.php" role="button">Buscar Cliente &raquo;</a></p>
+                    <p><a class="btn btn-secondary" href="./CrudClientes/BuscarCliente.php" role="button">Buscar Cliente &raquo;</a></p>
                 </div>
             </div>
 
