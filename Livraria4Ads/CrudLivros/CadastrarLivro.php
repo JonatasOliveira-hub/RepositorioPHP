@@ -16,7 +16,7 @@ include_once '../postgres_connection.php';
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <div class="container" style="background-color: #42dea4;  width: 500px; height: 420px;">
+    <div class="container" style="background-color: gray;  width: 500px; height: 420px;">
         <h1>Cadastrar Novo Livro</h1>
         <?php
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -69,29 +69,30 @@ include_once '../postgres_connection.php';
             <label>Código de barras: </label>
             <input type="number" name="codBarras" id="codBarras" placeholder="Código de barras"><br><br>
 
-            <input type="submit" value="Cadastrar" name="CadastraLivro"><br><br>
+            <input type="submit" value="Cadastrar" name="CadastraLivro" class="btn btn-success"><br><br>
 
         </form><br><br>
-        <div style="text-align: left;">
-            <a href="../index.php">Home</a><br>
-            <a href="../atribuicoesGerente.php">Pagina anterior</a><br>
+    </div>
+    <a href="../index.php">Home</a><br>
+    <a href="../atribuicoesGerente.php">Pagina anterior</a><br>
 
-            <a href="./AlterarLivro.php">Alterar Livros</a><br>
-            <a href="./RemoverLivros.php">Excluir Livros</a><br>
-            <a href="./ListarLivros.php">Exibir Livros</a><br>
+    <a href="./AlterarLivro.php">Alterar Livros</a><br>
+    <a href="./RemoverLivros.php">Excluir Livros</a><br>
+    <a href="./ListarLivros.php">Exibir Livros</a><br>
 
-            <a href="CadastrarCliente.php">Cadastrar Novo Cliente</a><br>
-            <a href="RemoverCliente.php">Remover Cliente</a><br>
-            <a href="AlterarCliente.php">Alterar Cliente</a><br>
-            <a href="BuscarCliente.php">Buscar Cliente</a><br>
+    <a href="CadastrarCliente.php">Cadastrar Novo Cliente</a><br>
+    <a href="RemoverCliente.php">Remover Cliente</a><br>
+    <a href="AlterarCliente.php">Alterar Cliente</a><br>
+    <a href="BuscarCliente.php">Buscar Cliente</a><br>
 
-            <a href="CadastrarFuncionario.php">Cadastrar Novo Funcionário</a><br>
-            <a href="AlterarFuncionario.php">Alterar Funcionário</a><br>
-            <a href="RemoverFuncionario.php">Excluir Funcionário</a><br>
-            <a href="BuscarFuncionario.php">Buscar Funcionário</a><br>
+    <a href="CadastrarFuncionario.php">Cadastrar Novo Funcionário</a><br>
+    <a href="AlterarFuncionario.php">Alterar Funcionário</a><br>
+    <a href="RemoverFuncionario.php">Excluir Funcionário</a><br>
+    <a href="BuscarFuncionario.php">Buscar Funcionário</a><br>
 
-            <h2><a href="../logout.php">Sair</a></h2>
-        </div>
+    <h2><a href="../logout.php">Sair</a></h2>
+
+
 </body>
 
 </html>
