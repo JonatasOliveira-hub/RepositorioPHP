@@ -44,10 +44,10 @@ include_once '../postgres_connection.php';
     <a href="./RemoverLivros.php">Excluir Livros</a><br>
     <a href="./AlterarLivro.php">Alterar Livros</a><br>
 
-    <a href="CadastrarCliente.php">Cadastrar Novo Cliente</a><br>
-    <a href="RemoverCliente.php">Remover Cliente</a><br>
-    <a href="AlterarCliente.php">Alterar Cliente</a><br>
-    <a href="BuscarCliente.php">Buscar Cliente</a><br>
+    <a href="../CrudClientes/CadastrarCliente.php">Cadastrar Novo Cliente</a><br>
+    <a href="../CrudClientes/RemoverCliente.php">Remover Cliente</a><br>
+    <a href="../CrudClientes/AlterarCliente.php">Alterar Cliente</a><br>
+    <a href="../CrudClientes/BuscarCliente.php">Buscar Cliente</a><br>
 
     <a href="CadastrarFuncionario.php">Cadastrar Novo Funcionário</a><br>
     <a href="AlterarFuncionario.php">Alterar Funcionário</a><br>

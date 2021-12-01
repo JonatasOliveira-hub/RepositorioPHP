@@ -17,7 +17,7 @@ include_once '../postgres_connection.php';
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <div class="container" style="background-color: gray;  width: 550px; height: 420px;">
-        <h1>Cadastrar Novo Livro</h1>
+        <h1>Cadastrar Novo Cliente</h1>
         <?php
         $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         if (!empty($dados['CadastraCliente'])) {
@@ -70,7 +70,7 @@ include_once '../postgres_connection.php';
             <label>Endereço do cliente: </label>
             <input type="text" name="enderecoCli" id="enderecoCli" placeholder="Código de barras"><br><br>
             
-            <label>Endereço do cliente: </label>
+            <label>Email do cliente: </label>
             <input type="email" name="enderecoMail" id="enderecoMail" placeholder="E-mail"><br><br>
 
             <input type="submit" value="Cadastrar" name="CadastraCliente" class="btn btn-success"><br><br>
