@@ -75,9 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href="../index.php">Home</a><br>
     <a href="../atribuicoesGerente.php">Pagina anterior</a><br>
 
-    <a href="./CadastrarLivro.php">Cadastrar Novo Livro</a><br>
-    <a href="./RemoverLivros.php">Excluir Livros</a><br>
-    <a href="./ListarLivros.php">Exibir Livros</a><br>
+    <a href="../CrudLivros/CadastrarLivro.php">Cadastrar Novo Livro</a><br>
+    <a href="../CrudLivros/RemoverLivros.php">Excluir Livros</a><br>
+    <a href="../CrudLivros/ListarLivros.php">Exibir Livros</a><br>
+    <a href="../CrudLivros/AlterarLivro.php">Alterar Livro</a><br>
+
 
     <a href="CadastrarCliente.php">Cadastrar Novo Cliente</a><br>
     <a href="RemoverCliente.php">Remover Cliente</a><br>

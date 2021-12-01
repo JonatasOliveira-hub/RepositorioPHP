@@ -97,7 +97,7 @@ session_start();
                 <div class="col-md-4">
                     <h2>Buscar Cliente</h2>
                     <p>Exibe os dados de um cliente no sistema.</p>
-                    <p><a class="btn btn-secondary" href="./CrudClientes/BuscarCliente.php" role="button">Buscar Cliente &raquo;</a></p>
+                    <p><a class="btn btn-secondary" href="./CrudClientes/ListarCliente.php" role="button">Buscar Cliente &raquo;</a></p>
                 </div>
             </div>
 

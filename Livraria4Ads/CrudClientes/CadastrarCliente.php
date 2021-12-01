@@ -59,10 +59,10 @@ include_once '../postgres_connection.php';
             <input type="text" name="nomeCliente" id="nomeCliente" placeholder="Nome do Cliente"><br><br>
 
             <label>Número de telefone residencial do cliente: </label>
-            <input type="number" name="telefone" id="telefone" placeholder="Número de telefone"><br><br>
+            <input type="text" name="telefone" id="telefone" placeholder="Número de telefone"><br><br>
 
             <label>Número de celular do cliente: </label>
-            <input type="number" name="celular" id="celular" placeholder="Celular"><br><br>
+            <input type="text" name="celular" id="celular" placeholder="Celular"><br><br>
 
             <label>Cpf do cliente: </label>
             <input type="text" name="cpf" id="cpf" placeholder="Cpf do cliente"><br><br>
