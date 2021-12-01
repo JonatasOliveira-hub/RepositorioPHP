@@ -23,6 +23,7 @@ while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
         <a href = "CriarPergunta.php">Criar Pergunta</a><br>
         <a href = "ListarUmaPergunta.php">Listar uma pergunta</a><br>
         <a href = "editar.php">Editar pergunta</a><br>
+        <a href = "RemoverPergunta.php">Remover pergunta</a><br>
         <h1>Listar uma pergunta</h1>
         
         <form name="ListarUmaPergunta" method="POST" action="ListarUmaPergunta.php">
