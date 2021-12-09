@@ -29,10 +29,9 @@ $stmt->execute(array(
     ':pergunta' => $pergunta
 ));
 
-
 if (($stmt) and ($stmt->rowCount() != 0)) {
     while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $encode[] = $linha;
+        $encode = $linha;
     }
 } else {
     echo "Nenhum aluno encontrado.<br>";
