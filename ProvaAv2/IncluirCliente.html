@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Incluir Cliente</title>
+    <script>
+        function CepValido(vPonto) {
+            let validacep = /^[0-9]{8}$/;
+            return validacep.test(vPonto);
+        }
+
+        function FormValido(pNome, pEndereco, pPais, pCep) {
+            let msg = "";
+            if (pNome == "") {
+                msg = "Nome não pode ser vazio. <br>";
+            }
+            if (pEndereco == "") {
+                msg += "Endereço não pode ser vazio. <br>";
+            }
+            if (pPais == "") {
+                msg += "País não pode ser vazio. <br>";
+            }
+            if (!CepValido(pCep)) {
+                msg += "Cep inválido. <br>";
+            }
+            /*Realizar as demais validações*/
+
+            return msg;
+        }
+        function ValidarForm() {
+            let objForm = document.getElementById("cadCliente");
+            console.log("objForm: " + objForm.innerHTML);
+            let strNome = document.getElementById("nome").value;
+            let strEndereco = document.getElementById("endereco").value;
+            let strCep = document.getElementById("cep").value;
+            let strPais = document.getElementById("pais").value;
+            let strCpf = document.getElementById("cpf").value;
+            let strPassaporte = document.getElementById("passaporte").value;
+            let strEmail = document.getElementById("email").value;
+            let strNascimento = document.getElementById("nasc").value;
+            console.log("Nome Cliente: " + strNome + " Endereço: " + strEndereco + " Cep: " + strCep + " País: " + strPais
+                + " Cpf: " + strCpf + " Passaporte: " + strPassaporte + " Email: " + strEmail + " Data Nascimento: " + strNascimento);
+            let mensagem = FormValido(strNome, strEndereco, strPais, strCep, strCpf, strPassaporte, strEmail, strNascimento);
+
+            let objJSON = JSON.stringify(objForm);
+            console.log("JSON: " + objJSON);
+
+            if (mensagem == "") {
+                console.log("Passou na validação");
+                EnviarForm(strNome, strEndereco, strPais, strCep, strCpf, strPassaporte, strEmail, strNascimento);
+            } else {
+                document.getElementById("msg").innerHTML = mensagem;
+            }
+        }
+        function EnviarForm(eNome, eEndereco, ePais, eCep, eCpf, ePassaporte, eEmail, eNascimento) {
+            let xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log("Chegou resposta: " + this.responseText);
+                    document.getElementById("msg").innerHTML = this.responseText;
+                    let objReturnJSON = JSON.parse(this.responseText);
+                }
+            }
+            xmlHttp.open("GET", "http://localhost/ProvaAv2/CadastrarCliente.php?nome=" + eNome +
+                "&endereco=" + eEndereco + "&pais=" + ePais + "&cep=" + eCep + "&cpf=" + eCpf
+                + ePassaporte + "&passaporte=" + eEmail + "&email=" + eNascimento + "&nasc=");
+            xmlHttp.send();
+            console.log("Enviei requisição");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Inserir Cliente</h1>
+    <br>
+    <a href="IncluirCliente.html">Inserir Cliente</a><br>
+    <a href="ex16_alterarQualPergunta.html">Alterar Cliente</a><br>
+    <a href="ex16_listarPerguntas.html">Listar Cliente</a><br>
+    <br>
+    <form action="" method=GET id="cadCliente">
+        Nome do Cliente: <input type=text name="nome" id="nome"> <br>
+        Endereço do Cliente: <input type=text name="endereco" id="endereco"> <br>
+        Cep do Cliente: <input type=text name="cep" id="cep"> <br>
+        <!--Incluir validação de Cep via JS-->
+        País do Cliente: <input type=text name="pais" id="pais"> <br>
+        Cpf do Cliente: <input type=text name="cpf" id="cpf"> <br>
+        <!--Incluir validação de Cpf via JS-->
+        Passaporte do Cliente: <input type=text name="passaporte" id="passaporte"> <br>
+        <!--Incluir validação de passaporte via JS-->
+        Email do Cliente: <input type=email name="email" id="email"> <br>
+        <!--Incluir validação de email? via JS-->
+        Data de Nascimento do cliente: <input type=text name="nasc" id="nasc"> <br>
+        <!--Incluir validação de Data via JS-->
+        <br><br>
+        <input type="button" value="Inserir" onclick="ValidarForm()">
+    </form>
+    <br>
+    <p id="msg"></p>
+</body>
+
+</html>
