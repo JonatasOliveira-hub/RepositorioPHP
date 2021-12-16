@@ -43,7 +43,20 @@
             return true;
         }
 
-        function FormValido(pNome, pEndereco, pPais, pCep, pCpf) {
+        function validardataDeNascimento(data) {
+            dataAtual = new Date();
+            data = new Date(data);
+
+            if (data < dataAtual) {
+                console.log("Data Válida");
+                return true;
+            } else {
+                console.log("Data Inválida");
+                return false;
+            }
+        }
+
+        function FormValido(pNome, pEndereco, pPais, pCep, pCpf, pNascimento) {
             let msg = "";
             if (pNome == "") {
                 msg = "Nome não pode ser vazio. <br>";
@@ -60,6 +73,10 @@
             }
             if (TestaCPF(pCpf) == false) {
                 msg += "Cpf inválido. <br>";
+                limpa_formulario();
+            }
+            if (validardataDeNascimento(pNascimento) == false) {
+                msg += "Data de nascimento inválida. <br>";
                 limpa_formulario();
             }
 
@@ -81,7 +98,7 @@
             console.log("Nome Cliente: " + strNome + " Endereço: " + strEndereco + " Cep: " + strCep + " País: " + strPais
                 + " Cpf: " + strCpf + " Passaporte: " + strPassaporte + " Email: " + strEmail + " Data Nascimento: " +
                 strNascimento);
-            let mensagem = FormValido(strNome, strEndereco, strPais, strCep, strCpf, strPassaporte, strEmail, strNascimento);
+            let mensagem = FormValido(strNome, strEndereco, strPais, strCep, strCpf, strNascimento);
 
             let objJSON = JSON.stringify(objForm);
             console.log("JSON: " + objJSON);
@@ -125,9 +142,9 @@
         País do Cliente: <input type=text name="pais" id="pais"> <br>
         Cpf do Cliente: <input type=text name="cpf" id="cpf"> <br>
         Passaporte do Cliente: <input type=text name="passaporte" id="passaporte"> <br>
-        Email do Cliente: <input type=email name="email" id="email"> <br>
+        Email do Cliente: <input type=mail name="email" id="email"> <br>
         <!--Incluir validação de email? via JS-->
-        Data de Nascimento do cliente: <input type=text name="nasc" id="nasc"> <br>
+        Data de Nascimento do cliente: <input type=date name="nasc" id="nasc"> <br>
         <!--Incluir validação de Data via JS-->
         <br><br>
         <input type="button" value="Inserir" onclick="ValidarForm()">
