@@ -5,12 +5,45 @@
     <meta charset="UTF-8">
     <title>Incluir Cliente</title>
     <script>
+        function limpa_formulario() {
+            //Limpa valores do formulário.
+            document.getElementById('nome').value = ("");
+            document.getElementById('endereco').value = ("");
+            document.getElementById('cep').value = ("");
+            document.getElementById('pais').value = ("");
+            document.getElementById('cpf').value = ("");
+            document.getElementById('passaporte').value = ("");
+            document.getElementById('email').value = ("");
+            document.getElementById('nasc').value = ("");
+        }
+
         function CepValido(vPonto) {
             let validacep = /^[0-9]{8}$/;
             return validacep.test(vPonto);
         }
 
-        function FormValido(pNome, pEndereco, pPais, pCep) {
+        function TestaCPF(strCPF) {
+            var Soma;
+            var Resto;
+            Soma = 0;
+            if (strCPF == "00000000000") return false;
+
+            for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+            Resto = (Soma * 10) % 11;
+
+            if ((Resto == 10) || (Resto == 11)) Resto = 0;
+            if (Resto != parseInt(strCPF.substring(9, 10))) return false;
+
+            Soma = 0;
+            for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
+            Resto = (Soma * 10) % 11;
+
+            if ((Resto == 10) || (Resto == 11)) Resto = 0;
+            if (Resto != parseInt(strCPF.substring(10, 11))) return false;
+            return true;
+        }
+
+        function FormValido(pNome, pEndereco, pPais, pCep, pCpf) {
             let msg = "";
             if (pNome == "") {
                 msg = "Nome não pode ser vazio. <br>";
@@ -23,7 +56,13 @@
             }
             if (!CepValido(pCep)) {
                 msg += "Cep inválido. <br>";
+                limpa_formulario();
             }
+            if (TestaCPF(pCpf) == false) {
+                msg += "Cpf inválido. <br>";
+                limpa_formulario();
+            }
+
             /*Realizar as demais validações*/
 
             return msg;
@@ -40,7 +79,8 @@
             let strEmail = document.getElementById("email").value;
             let strNascimento = document.getElementById("nasc").value;
             console.log("Nome Cliente: " + strNome + " Endereço: " + strEndereco + " Cep: " + strCep + " País: " + strPais
-                + " Cpf: " + strCpf + " Passaporte: " + strPassaporte + " Email: " + strEmail + " Data Nascimento: " + strNascimento);
+                + " Cpf: " + strCpf + " Passaporte: " + strPassaporte + " Email: " + strEmail + " Data Nascimento: " +
+                strNascimento);
             let mensagem = FormValido(strNome, strEndereco, strPais, strCep, strCpf, strPassaporte, strEmail, strNascimento);
 
             let objJSON = JSON.stringify(objForm);
@@ -82,12 +122,9 @@
         Nome do Cliente: <input type=text name="nome" id="nome"> <br>
         Endereço do Cliente: <input type=text name="endereco" id="endereco"> <br>
         Cep do Cliente: <input type=text name="cep" id="cep"> <br>
-        <!--Incluir validação de Cep via JS-->
         País do Cliente: <input type=text name="pais" id="pais"> <br>
         Cpf do Cliente: <input type=text name="cpf" id="cpf"> <br>
-        <!--Incluir validação de Cpf via JS-->
         Passaporte do Cliente: <input type=text name="passaporte" id="passaporte"> <br>
-        <!--Incluir validação de passaporte via JS-->
         Email do Cliente: <input type=email name="email" id="email"> <br>
         <!--Incluir validação de email? via JS-->
         Data de Nascimento do cliente: <input type=text name="nasc" id="nasc"> <br>
