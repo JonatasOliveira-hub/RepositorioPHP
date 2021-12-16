@@ -31,7 +31,7 @@ $stmt->execute(array(
 
 if (($stmt) and ($stmt->rowCount() != 0)) {
     while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $encode = $linha;
+        $encode[] = $linha;
     }
 } else {
     echo "Nenhum aluno encontrado.<br>";
@@ -41,7 +41,6 @@ echo json_encode($encode, JSON_UNESCAPED_UNICODE);
 
 /*retornar um código de confirmação (JSON) para a página do html. 
 retornar o próprio objeto que eu inseri.
-Após a realização de uma operação, chamar um arquivo que valida o objeto na tabela e retorna o objeto para a pagina html
-Procurar como fazer essa parada. 
+Fazer o listar pergunta, colocando os valores em tabela.
 Componente que auxilia Sinfone = hibernate = jpa = spring data(nunca usei)
 */
