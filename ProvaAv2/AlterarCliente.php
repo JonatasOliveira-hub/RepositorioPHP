@@ -41,3 +41,4 @@ if (($stmt) and ($stmt->rowCount() != 0)) {
 }
 
 echo json_encode($encode, JSON_UNESCAPED_UNICODE);
+?>

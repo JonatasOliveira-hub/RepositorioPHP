@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Incluir Cliente</title>
+    <script>
+
+        function EnviarForm() {
+            let xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log("Chegou resposta: " + this.responseText);
+                    document.getElementById("msg").innerHTML = this.responseText;
+                    let objReturnJSON = JSON.parse(this.responseText);
+                }
+            }
+            xmlHttp.open("GET", "http://localhost/RepositorioPHP/ProvaAv2/ListarClientes.php?");
+            xmlHttp.send();
+            console.log("Enviei requisição");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Listar Cliente</h1>
+    <br>
+    <a href="IncluirCliente.html">Inserir Cliente</a><br>
+    <a href="AlterarCliente.html">Alterar Cliente</a><br>
+    <a href="ListarClientes.html">Listar Cliente</a><br>
+    <br>
+    <form action="" method=GET id="listarCliente">
+        <input type="button" value="Listar" onclick="EnviarForm()">
+    </form>
+    <br>
+    <p id="msg"></p>
+</body>
+
+</html>
