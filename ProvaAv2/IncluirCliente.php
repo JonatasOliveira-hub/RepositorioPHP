@@ -9,7 +9,7 @@ $pais = $_GET["pais"];
 $cpf = $_GET["cpf"];
 $passaporte = $_GET["passaporte"];
 $email = $_GET["email"];
-$dtnascimento = $_GET["nasc"];
+$dtnascimento = date("Y-m-d", strtotime($_GET["nasc"]));
 
 $sql = "INSERT INTO  clientes (nome, endereco, postalcode, pais, cpf, passaporte, email, datanascimento)
     VALUES (:nome, :endereco, :cep, :pais, :cpf, :passaporte, :email, :nasc)";
@@ -28,9 +28,9 @@ $cad_cliente->bindParam(':nasc', $dtnascimento);
 $cad_cliente->execute();
 
 //BUSCANDO O OBJETO QUE CADASTREI
-/* $stmt = $dbconn->prepare("SELECT id_pergunta, descricao_pergunta, qunt_pontos, grau_dificuldade FROM perguntas WHERE descricao_pergunta = :pergunta");
+$stmt = $dbconn->prepare("SELECT id, nome, endereco, postalcode, pais, cpf, passaporte, email, datanascimento FROM clientes WHERE cpf = :cpf");
 $stmt->execute(array(
-    ':pergunta' => $pergunta
+    ':cpf' => $cpf
 ));
 
 if (($stmt) and ($stmt->rowCount() != 0)) {
@@ -41,6 +41,6 @@ if (($stmt) and ($stmt->rowCount() != 0)) {
     echo "Nenhum cliente encontrado.<br>";
 }
 
-echo json_encode($encode, JSON_UNESCAPED_UNICODE); */
+echo json_encode($encode, JSON_UNESCAPED_UNICODE); 
 
 ?>

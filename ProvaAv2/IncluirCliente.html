@@ -119,9 +119,9 @@
                     let objReturnJSON = JSON.parse(this.responseText);
                 }
             }
-            xmlHttp.open("GET", "http://localhost/ProvaAv2/CadastrarCliente.php?nome=" + eNome +
-                "&endereco=" + eEndereco + "&pais=" + ePais + "&cep=" + eCep + "&cpf=" + eCpf
-                + ePassaporte + "&passaporte=" + eEmail + "&email=" + eNascimento + "&nasc=");
+            xmlHttp.open("GET", "http://localhost/RepositorioPHP/ProvaAv2/IncluirCliente.php?nome=" + eNome +
+                "&endereco=" + eEndereco + "&pais=" + ePais + "&cep=" + eCep + "&cpf=" + eCpf +
+                "&passaporte=" + ePassaporte + "&email=" + eEmail + "&nasc=" + eNascimento);
             xmlHttp.send();
             console.log("Enviei requisição");
         }
@@ -143,7 +143,6 @@
         Cpf do Cliente: <input type=text name="cpf" id="cpf"> <br>
         Passaporte do Cliente: <input type=text name="passaporte" id="passaporte"> <br>
         Email do Cliente: <input type=mail name="email" id="email"> <br>
-        <!--Incluir validação de email? via JS-->
         Data de Nascimento do cliente: <input type=date name="nasc" id="nasc"> <br>
         <!--Incluir validação de Data via JS-->
         <br><br>
